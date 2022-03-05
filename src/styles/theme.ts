@@ -1,0 +1,31 @@
+import { DefaultTheme } from "styled-components";
+
+export const theme: DefaultTheme = {
+  colors: {
+    primary: "#cf0018",
+    secondary: "#292a33",
+    white: "#ffffff",
+    black: "#000000",
+    gray: "#7b828a",
+    backgroundColor: "#191d21",
+    backgroundColorRgba: "rgba(25, 29, 33, 1)",
+    greenish: "#29ffca",
+    red: "#ed184d",
+    deepBlack: "#091c30",
+    darkGray: "#2a2d30",
+    navbarItemHoverBackground: "rgba(255,255,255,.04)",
+    layoutBorder: "rgba(255,255,255,.04)",
+    bottomTabBackground: "#000",
+    bottomTabBorderTop: "rgba(255,255,255,.1)",
+    deepblackBG: "rgb(25, 29, 33)",
+  },
+  borderRadius: "5px",
+  normalFontSize: "16.7px",
+  largeFontSize: "36.7px",
+  marginHorizontal: "15px",
+  paddingHorizontal: "15px",
+  headerHeight: "70px",
+  bottomNavbarHeight: "55px",
+  contentMaxWidth: "600px",
+  mainLayoutMaxWidth: "700px",
+};
