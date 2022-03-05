@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
     <Nav>
       <Logo src="assets/Logo.svg" />
@@ -14,8 +14,6 @@ const Navbar: React.FC = () => {
     </Nav>
   );
 };
-
-export default Navbar;
 
 const Nav = styled.div`
   display: flex;
