@@ -12,7 +12,7 @@ export const MainPage: React.FC = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await api.get("/requests");
+    const res = await api.get("/requests?method=선반&&method=밀링");
     if (res.status === 200) {
       setData(res.data);
     }
@@ -20,16 +20,21 @@ export const MainPage: React.FC = () => {
 
   return (
     <Wrapper>
-      <Header />
-      <Filter />
-      <Body data={data} />
+      <InnerWrapper>
+        <Header />
+        <Filter />
+        <Body data={data} />
+      </InnerWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin-left: 155px;
-  margin-right: 155px;
+  display: flex;
+  justify-content: center;
+`;
+
+const InnerWrapper = styled.div`
   margin-top: 40px;
   border: 1px solid red;
 `;

@@ -47,7 +47,7 @@ export default Filter;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 32px 0;
+  margin: 32px 8px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -79,6 +79,7 @@ const Button = styled.button`
   font-size: 12px;
   color: ${(props) => props.theme.colors.secondaryColor};
   margin-left: 16px;
+  cursor: pointer;
 `;
 
 const Icon = styled.img`

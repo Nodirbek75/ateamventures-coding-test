@@ -20,5 +20,6 @@ const Body: React.FC<Props> = ({ data }) => {
 export default Body;
 
 const Wrapper = styled.div`
-  columns: 3;
+  display: flex;
+  flex-wrap: wrap;
 `;

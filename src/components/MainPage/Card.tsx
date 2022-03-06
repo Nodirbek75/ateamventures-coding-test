@@ -1,4 +1,3 @@
-import { useWindowSize } from "hooks";
 import React from "react";
 import styled from "styled-components";
 import { ProjectRequst } from "types";
@@ -14,7 +13,6 @@ const Card: React.FC<ProjectRequst> = ({
   material,
   status,
 }) => {
-  const { width } = useWindowSize();
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -48,11 +46,12 @@ const Card: React.FC<ProjectRequst> = ({
 export default Card;
 
 const Wrapper = styled.div`
+  width: calc(100% / 3 - 16px);
   display: flex;
   flex-direction: column;
   border: 1px solid ${(props) => props.theme.colors.cardBorder};
   border-radius: 4px;
-  margin-bottom: 16px;
+  margin: 0 8px 16px 8px;
   padding: 24px 16px;
   cursor: pointer;
   &:hover {

@@ -15,6 +15,7 @@ export default Header;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 8px;
 `;
 
 const Title = styled.text`

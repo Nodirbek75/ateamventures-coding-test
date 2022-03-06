@@ -46,7 +46,7 @@ const Button = styled.button`
   background-color: ${(props) => props.theme.colors.white};
   padding: 4px 12px;
   margin-right: 8px;
-
+  cursor: pointer;
   &:hover {
     border-color: ${(props) => props.theme.colors.secondaryColor};
   }
@@ -62,6 +62,7 @@ const DropdownComp = styled.div<{ active: boolean }>`
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 12px;
+  background-color: ${(props) => props.theme.colors.white};
 `;
 
 const Icon = styled.img`
@@ -79,6 +80,7 @@ const Checkbox = styled.input`
   width: 18px;
   height: 18px;
   margin-right: 10px;
+  cursor: pointer;
 `;
 
 const Label = styled.label`
