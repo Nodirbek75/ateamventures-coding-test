@@ -50,7 +50,6 @@ export default Card;
 
 const Wrapper = styled.div`
   width: calc(100% / 3 - 16px);
-  min-width: 366px;
   display: flex;
   flex-direction: column;
   border: 1px solid ${(props) => props.theme.colors.cardBorder};
@@ -60,6 +59,12 @@ const Wrapper = styled.div`
   cursor: pointer;
   &:hover {
     border-color: ${(props) => props.theme.colors.secondaryColor};
+  }
+  @media (max-width: 768px) {
+    width: calc(100% / 2 - 16px);
+  }
+  @media (max-width: 425px) {
+    width: 100%;
   }
 `;
 

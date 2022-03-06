@@ -64,7 +64,7 @@ const Button = styled.button<{ active: boolean }>`
   align-items: center;
   border-radius: 4px;
   border: 1px solid ${(props) => props.theme.colors.gray};
-  padding: 4px 12px;
+  padding: 9px 12px;
   margin-right: 8px;
   font-size: 12px;
   background-color: ${(props) =>

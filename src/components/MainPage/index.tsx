@@ -48,6 +48,12 @@ export const MainPage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 40px 155px 0 155px;
+  margin: 40px 147px 0 147px;
   border: 1px solid red;
+  @media (max-width: 1024px) {
+    margin: 40px;
+  }
+  @media (max-width: 425px) {
+    margin: 24px 12px 0 12px;
+  }
 `;

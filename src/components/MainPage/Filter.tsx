@@ -87,11 +87,18 @@ const Wrapper = styled.div`
   margin: 32px 8px;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  @media (max-width: 425px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const SwitchWrapper = styled.div`
