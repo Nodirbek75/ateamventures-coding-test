@@ -42,7 +42,7 @@ const Button = styled.button`
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid ${(props) => props.theme.colors.borderColor};
+  border: 1px solid ${(props) => props.theme.colors.gray};
   background-color: ${(props) => props.theme.colors.white};
   padding: 4px 12px;
   margin-right: 8px;

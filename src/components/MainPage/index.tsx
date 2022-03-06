@@ -1,6 +1,7 @@
 import { api } from "lib";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Body from "./Body";
 import Filter from "./Filter";
 import Header from "./Header";
 
@@ -21,9 +22,7 @@ export const MainPage: React.FC = () => {
     <Wrapper>
       <Header />
       <Filter />
-      {/* {data.map((item: any) => (
-        <SingleItem>{item.title}</SingleItem>
-      ))} */}
+      <Body data={data} />
     </Wrapper>
   );
 };
@@ -32,8 +31,5 @@ const Wrapper = styled.div`
   margin-left: 155px;
   margin-right: 155px;
   margin-top: 40px;
-`;
-
-const SingleItem = styled.div`
-  margin-left: 40px;
+  border: 1px solid red;
 `;
