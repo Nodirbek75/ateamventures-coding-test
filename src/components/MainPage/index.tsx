@@ -28,21 +28,14 @@ export const MainPage: React.FC = () => {
 
   return (
     <Wrapper>
-      <InnerWrapper>
-        <Header />
-        <Filter toggleHandler={toggleHandler} />
-        <Body data={data} />
-      </InnerWrapper>
+      <Header />
+      <Filter toggleHandler={toggleHandler} />
+      <Body data={data} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const InnerWrapper = styled.div`
-  margin-top: 40px;
+  margin: 40px 155px 0 155px;
   border: 1px solid red;
 `;

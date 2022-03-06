@@ -50,6 +50,7 @@ export default Card;
 
 const Wrapper = styled.div`
   width: calc(100% / 3 - 16px);
+  min-width: 366px;
   display: flex;
   flex-direction: column;
   border: 1px solid ${(props) => props.theme.colors.cardBorder};
