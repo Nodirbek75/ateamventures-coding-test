@@ -15,7 +15,10 @@ const Card: React.FC<ProjectRequst> = ({
 }) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <TitleWrapper>
+        <Title>{title}</Title>
+        {status === "상담중" && <Status>{status}</Status>}
+      </TitleWrapper>
       <Customer>{client}</Customer>
       <Deadline>{due}</Deadline>
       <Seperator />
@@ -59,11 +62,27 @@ const Wrapper = styled.div`
   }
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const Title = styled.text`
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 4px;
+`;
+
+const Status = styled.div`
+  border: 1px solid ${(props) => props.theme.colors.orange};
+  border-radius: 12px;
+  padding: 2px 8px;
+  color: ${(props) => props.theme.colors.orange};
+  font-size: 12px;
+  font-weight: 500;
 `;
 
 const Customer = styled.text`

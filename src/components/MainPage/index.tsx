@@ -11,10 +11,18 @@ export const MainPage: React.FC = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    const res = await api.get("/requests?method=선반&&method=밀링");
+  const fetchData = async (filter?: string) => {
+    const res = await api.get("/requests?" + filter);
     if (res.status === 200) {
       setData(res.data);
+    }
+  };
+
+  const toggleHandler = (val: boolean) => {
+    if (val) {
+      fetchData("status=상담중");
+    } else {
+      fetchData();
     }
   };
 
@@ -22,7 +30,7 @@ export const MainPage: React.FC = () => {
     <Wrapper>
       <InnerWrapper>
         <Header />
-        <Filter />
+        <Filter toggleHandler={toggleHandler} />
         <Body data={data} />
       </InnerWrapper>
     </Wrapper>

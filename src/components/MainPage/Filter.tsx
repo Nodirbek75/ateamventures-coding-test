@@ -8,8 +8,17 @@ import { Dropdown } from "components/Common";
 const methods = ["밀링", "선반"];
 const materials = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
 
-const Filter: React.FC = () => {
+interface Props {
+  toggleHandler: (val: boolean) => void;
+}
+
+const Filter: React.FC<Props> = ({ toggleHandler }) => {
   const [checked, setChecked] = useState(false);
+
+  const onChangeHandler = () => {
+    setChecked(!checked);
+    toggleHandler(!checked);
+  };
 
   return (
     <Wrapper>
@@ -23,7 +32,7 @@ const Filter: React.FC = () => {
       <SwitchWrapper>
         <Switch
           checked={checked}
-          onChange={() => setChecked(!checked)}
+          onChange={onChangeHandler}
           onColor="#86d3ff"
           onHandleColor="#2693e6"
           handleDiameter={30}

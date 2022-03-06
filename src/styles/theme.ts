@@ -8,5 +8,6 @@ export const theme: DefaultTheme = {
     textColor: "#323D45",
     gray: "#939FA5",
     cardBorder: "#E5E5E5",
+    orange: "#FFA000",
   },
 };
