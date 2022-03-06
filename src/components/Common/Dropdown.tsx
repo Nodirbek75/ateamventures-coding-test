@@ -36,10 +36,16 @@ export const Dropdown: React.FC<Props> = ({ label, options, onChange }) => {
   };
 
   return (
-    <Button onClick={() => setActive(true)}>
+    <Button onClick={() => setActive(true)} active={checkedList.length > 0}>
       {label}
       {checkedList.length > 0 && `(${checkedList.length})`}
-      <Icon src="assets/arrow_drop_down.svg" />
+      <Icon
+        src={
+          checkedList.length > 0
+            ? "assets/arrow_drop_down_white.svg"
+            : "assets/arrow_drop_down.svg"
+        }
+      />
       <DropdownComp active={active} ref={dropDownRef}>
         {options.map((item) => (
           <CheckboxWrapper>
@@ -57,16 +63,20 @@ export const Dropdown: React.FC<Props> = ({ label, options, onChange }) => {
   );
 };
 
-const Button = styled.button`
+const Button = styled.button<{ active: boolean }>`
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
   border: 1px solid ${(props) => props.theme.colors.gray};
-  background-color: ${(props) => props.theme.colors.white};
   padding: 4px 12px;
   margin-right: 8px;
+  font-size: 12px;
+  background-color: ${(props) =>
+    props.active ? props.theme.colors.primaryColor : props.theme.colors.white};
+  color: ${(props) =>
+    props.active ? props.theme.colors.white : props.theme.colors.textColor};
   cursor: pointer;
   &:hover {
     border-color: ${(props) => props.theme.colors.secondaryColor};
