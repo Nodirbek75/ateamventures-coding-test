@@ -24,8 +24,12 @@ export const MainPage: React.FC = () => {
   );
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData({
+      material: materials,
+      method: methods,
+      status: toggleOn ? "상담중" : undefined,
+    });
+  }, [methods, materials, toggleOn]);
 
   const fetchData = async (filter?: Filter) => {
     const res = await api.get("/requests", { params: filter });
