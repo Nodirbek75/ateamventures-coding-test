@@ -1,9 +1,15 @@
-import { api } from "lib";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Body from "./Body";
-import Filter from "./Filter";
+import { useSelector } from "react-redux";
+
+// components
 import Header from "./Header";
+import Filter from "./Filter";
+import Body from "./Body";
+
+// lib
+import { api } from "lib";
+import { AppState } from "lib/store";
 
 interface Filter {
   method?: Array<string>;
@@ -12,9 +18,11 @@ interface Filter {
 }
 
 export const MainPage: React.FC = () => {
-  const [methods, setMethods] = useState<Array<string>>([]);
-  const [materials, setMaterials] = useState<Array<string>>([]);
   const [data, setData] = useState([]);
+  const { methods, materials, toggleOn } = useSelector(
+    (state: AppState) => state.filters
+  );
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -26,44 +34,10 @@ export const MainPage: React.FC = () => {
     }
   };
 
-  const toggleHandler = (val: boolean) => {
-    if (val) {
-      fetchData({ status: "상담중" });
-    } else {
-      fetchData();
-    }
-  };
-
-  const onMethodFilter = (val: string, checked: boolean) => {
-    let updatedMethods;
-    if (checked) {
-      updatedMethods = [...methods, val];
-    } else {
-      updatedMethods = methods.filter((el) => el !== val);
-    }
-    setMethods(updatedMethods);
-    fetchData({ method: updatedMethods, material: materials });
-  };
-
-  const onMaterialFilter = (val: string, checked: boolean) => {
-    let updatedMaterials;
-    if (checked) {
-      updatedMaterials = [...materials, val];
-    } else {
-      updatedMaterials = materials.filter((el) => el !== val);
-    }
-    setMaterials(updatedMaterials);
-    fetchData({ material: updatedMaterials, method: methods });
-  };
-
   return (
     <Wrapper>
       <Header />
-      <Filter
-        onMethodChange={onMethodFilter}
-        onMaterialChange={onMaterialFilter}
-        toggleHandler={toggleHandler}
-      />
+      <Filter />
       <Body data={data} />
     </Wrapper>
   );

@@ -1,5 +1,9 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
+
+// lib
+import store from "lib/store";
 
 // components
 import { Layout } from "./components";
@@ -9,10 +13,12 @@ import { GlobalStyles, theme } from "./styles";
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Layout />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Layout />
+      </ThemeProvider>
+    </Provider>
   );
 };
 

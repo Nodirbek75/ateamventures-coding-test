@@ -4,13 +4,18 @@ import styled from "styled-components";
 interface Props {
   label: string;
   options: Array<string>;
+  checkedOptions: Array<string>;
   onChange: (val: string, checked: boolean) => void;
 }
 
-export const Dropdown: React.FC<Props> = ({ label, options, onChange }) => {
+export const Dropdown: React.FC<Props> = ({
+  label,
+  options,
+  checkedOptions,
+  onChange,
+}) => {
   const dropDownRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
-  const [checkedList, setCheckedList] = useState<Array<string>>([]);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -23,25 +28,13 @@ export const Dropdown: React.FC<Props> = ({ label, options, onChange }) => {
     }
   };
 
-  const onSelect = (val: any) => {
-    const { name, checked } = val.target;
-    onChange(name, checked);
-
-    if (checked) {
-      setCheckedList([...checkedList, name]);
-    } else {
-      const filteredCheckedList = checkedList.filter((el) => el !== name);
-      setCheckedList(filteredCheckedList);
-    }
-  };
-
   return (
-    <Button onClick={() => setActive(true)} active={checkedList.length > 0}>
+    <Button onClick={() => setActive(true)} active={checkedOptions.length > 0}>
       {label}
-      {checkedList.length > 0 && `(${checkedList.length})`}
+      {checkedOptions.length > 0 && `(${checkedOptions.length})`}
       <Icon
         src={
-          checkedList.length > 0
+          checkedOptions.length > 0
             ? "assets/arrow_drop_down_white.svg"
             : "assets/arrow_drop_down.svg"
         }
@@ -53,7 +46,8 @@ export const Dropdown: React.FC<Props> = ({ label, options, onChange }) => {
               type="checkbox"
               id={item}
               name={item}
-              onChange={onSelect}
+              checked={checkedOptions.includes(item)}
+              onChange={(val) => onChange(val.target.name, val.target.checked)}
             />
             <Label>{item}</Label>
           </CheckboxWrapper>

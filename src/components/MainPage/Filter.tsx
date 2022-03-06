@@ -1,29 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Switch from "react-switch";
+import { useDispatch, useSelector } from "react-redux";
 
 // components
 import { Dropdown } from "components/Common";
 
-const methods = ["밀링", "선반"];
-const materials = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
+// lib
+import {
+  filterMaterials,
+  filterMethods,
+  resetFilters,
+  toggle,
+} from "lib/store/slices/filtersSlice";
+import { AppState } from "lib/store";
 
-interface Props {
-  onMethodChange: (val: string, checked: boolean) => void;
-  onMaterialChange: (val: string, checked: boolean) => void;
-  toggleHandler: (val: boolean) => void;
-}
+const methodsList = ["밀링", "선반"];
+const materialsList = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
 
-const Filter: React.FC<Props> = ({
-  onMethodChange,
-  onMaterialChange,
-  toggleHandler,
-}) => {
-  const [checked, setChecked] = useState(false);
+const Filter: React.FC = () => {
+  const dispatch = useDispatch();
+  const { methods, materials, toggleOn } = useSelector(
+    (state: AppState) => state.filters
+  );
 
-  const onChangeHandler = () => {
-    setChecked(!checked);
-    toggleHandler(!checked);
+  const onChangeMethods = (val: string, checked: boolean) => {
+    dispatch(filterMethods({ val, checked }));
+  };
+
+  const onChangeMaterials = (val: string, checked: boolean) => {
+    dispatch(filterMaterials({ val, checked }));
+  };
+
+  const onResetFilters = () => {
+    dispatch(resetFilters());
   };
 
   return (
@@ -31,22 +41,26 @@ const Filter: React.FC<Props> = ({
       <ButtonsWrapper>
         <Dropdown
           label="가공방식"
-          options={methods}
-          onChange={onMethodChange}
+          options={methodsList}
+          checkedOptions={methods}
+          onChange={onChangeMethods}
         />
         <Dropdown
           label="재료"
-          options={materials}
-          onChange={onMaterialChange}
+          options={materialsList}
+          checkedOptions={materials}
+          onChange={onChangeMaterials}
         />
-        <Button>
-          <Icon src="assets/refresh.svg" /> 필터링 리셋
-        </Button>
+        {(methods.length > 0 || materials.length > 0) && (
+          <Button onClick={onResetFilters}>
+            <Icon src="assets/refresh.svg" /> 필터링 리셋
+          </Button>
+        )}
       </ButtonsWrapper>
       <SwitchWrapper>
         <Switch
-          checked={checked}
-          onChange={onChangeHandler}
+          checked={toggleOn}
+          onChange={(on) => dispatch(toggle(on))}
           onColor="#86d3ff"
           onHandleColor="#2693e6"
           handleDiameter={30}
