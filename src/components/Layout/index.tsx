@@ -3,17 +3,15 @@ import styled from "styled-components";
 
 // components
 import { Navbar } from "..";
+import { MainPage } from "../MainPage";
 
 export const Layout: React.FC = () => {
   return (
     <Wrapper>
       <Navbar />
+      <MainPage />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-`;
+const Wrapper = styled.div``;

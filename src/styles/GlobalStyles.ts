@@ -9,14 +9,13 @@ export const GlobalStyles = createGlobalStyle`
   -moz-box-sizing: border-box;
   resize: none;
   outline: 0;  
-  font-family: 'Noto Sans KR';
+  font-family: 'Noto Sans KR Medium';
 }
 
 html,
 body {
-  background-color: #191d21;
-  color: #fff;
+  background-color: #fff;
+  color: #323D45;
   scroll-behavior: smooth;
-  /* overflow: hidden; */
 }
 `;
