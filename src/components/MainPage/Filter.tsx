@@ -9,10 +9,16 @@ const methods = ["밀링", "선반"];
 const materials = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
 
 interface Props {
+  onMethodChange: (val: string, checked: boolean) => void;
+  onMaterialChange: (val: string, checked: boolean) => void;
   toggleHandler: (val: boolean) => void;
 }
 
-const Filter: React.FC<Props> = ({ toggleHandler }) => {
+const Filter: React.FC<Props> = ({
+  onMethodChange,
+  onMaterialChange,
+  toggleHandler,
+}) => {
   const [checked, setChecked] = useState(false);
 
   const onChangeHandler = () => {
@@ -23,8 +29,16 @@ const Filter: React.FC<Props> = ({ toggleHandler }) => {
   return (
     <Wrapper>
       <ButtonsWrapper>
-        <Dropdown label="가공방식" options={methods} />
-        <Dropdown label="재료" options={materials} />
+        <Dropdown
+          label="가공방식"
+          options={methods}
+          onChange={onMethodChange}
+        />
+        <Dropdown
+          label="재료"
+          options={materials}
+          onChange={onMaterialChange}
+        />
         <Button>
           <Icon src="assets/refresh.svg" /> 필터링 리셋
         </Button>

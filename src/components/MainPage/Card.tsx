@@ -32,11 +32,11 @@ const Card: React.FC<ProjectRequst> = ({
       </RowWrapper>
       <RowWrapper>
         <Key>가공방식</Key>
-        <Value>{method}</Value>
+        <Value>{method.join(", ")}</Value>
       </RowWrapper>
       <RowWrapper>
         <Key>재료</Key>
-        <Value>{material}</Value>
+        <Value>{material.join(", ")}</Value>
       </RowWrapper>
       <ButtonsWrapper>
         <Button active={true}>요청 내역 보기</Button>
