@@ -49,7 +49,6 @@ export const MainPage: React.FC = () => {
 
 const Wrapper = styled.div`
   margin: 110px 147px 0 147px;
-  border: 1px solid red;
   @media (max-width: 1024px) {
     margin: 110px 40px 0 40px;
   }
