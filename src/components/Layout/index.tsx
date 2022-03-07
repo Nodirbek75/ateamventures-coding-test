@@ -8,8 +8,8 @@ import { MainPage } from "../MainPage";
 export const Layout: React.FC = () => {
   return (
     <Wrapper>
-      <Navbar />
       <MainPage />
+      <Navbar />
     </Wrapper>
   );
 };
