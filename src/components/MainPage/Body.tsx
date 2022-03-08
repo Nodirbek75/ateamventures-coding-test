@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { ProjectRequst } from "types";
+
+// components
 import Card from "./Card";
+
+// types
+import { ProjectRequst } from "types";
 
 interface Props {
   data: Array<ProjectRequst>;

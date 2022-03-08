@@ -15,8 +15,8 @@ import {
 } from "lib/store/slices/filtersSlice";
 import { AppState } from "lib/store";
 
-const methodsList = ["밀링", "선반"];
-const materialsList = ["알루미늄", "탄소강", "구리", "합금강", "강철"];
+// utils
+import { materialsFilterList, methodsFilterList } from "utils";
 
 const Filter: React.FC = () => {
   const dispatch = useDispatch();
@@ -41,13 +41,13 @@ const Filter: React.FC = () => {
       <ButtonsWrapper>
         <Dropdown
           label="가공방식"
-          options={methodsList}
+          options={methodsFilterList}
           checkedOptions={methods}
           onChange={onChangeMethods}
         />
         <Dropdown
           label="재료"
-          options={materialsList}
+          options={materialsFilterList}
           checkedOptions={materials}
           onChange={onChangeMaterials}
         />

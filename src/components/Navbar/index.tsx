@@ -10,6 +10,7 @@ export const Navbar: React.FC = () => {
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
+
   return (
     <Nav>
       <Toolbar toggleDrawer={toggleDrawer} />
