@@ -41,7 +41,7 @@ export const Dropdown: React.FC<Props> = ({
       />
       <DropdownComp active={active} ref={dropDownRef}>
         {options.map((item) => (
-          <CheckboxWrapper>
+          <CheckboxWrapper key={item}>
             <Checkbox
               type="checkbox"
               id={item}

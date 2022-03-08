@@ -9,5 +9,6 @@ export const theme: DefaultTheme = {
     gray: "#939FA5",
     cardBorder: "#E5E5E5",
     orange: "#FFA000",
+    borderColor: "#C2C2C2",
   },
 };
