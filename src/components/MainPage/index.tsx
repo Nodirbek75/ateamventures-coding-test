@@ -12,8 +12,8 @@ import { api } from "lib";
 import { AppState } from "lib/store";
 
 interface Filter {
-  method?: Array<string>;
-  material?: Array<string>;
+  method_like?: Array<string>;
+  material_like?: Array<string>;
   status?: string;
 }
 
@@ -25,8 +25,8 @@ export const MainPage: React.FC = () => {
 
   useEffect(() => {
     fetchData({
-      material: materials,
-      method: methods,
+      material_like: materials,
+      method_like: methods,
       status: toggleOn ? "상담중" : undefined,
     });
   }, [methods, materials, toggleOn]);
@@ -48,12 +48,11 @@ export const MainPage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 40px 147px 0 147px;
-  border: 1px solid red;
+  margin: 110px 147px;
   @media (max-width: 1024px) {
-    margin: 40px;
+    margin: 110px 40px;
   }
   @media (max-width: 425px) {
-    margin: 24px 12px 0 12px;
+    margin: 68px 12px;
   }
 `;
