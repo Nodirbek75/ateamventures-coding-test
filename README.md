@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### `json-server --watch requests.json --port 3001`
 
-Runs the mock rest-api server
+Runs the mock rest-api server in port 3001
 
 ### `npm start`
 
