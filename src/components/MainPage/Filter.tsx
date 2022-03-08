@@ -63,17 +63,17 @@ const Filter: React.FC = () => {
           onChange={(on) => dispatch(toggle(on))}
           onColor="#86d3ff"
           onHandleColor="#2693e6"
-          handleDiameter={30}
+          handleDiameter={20}
           uncheckedIcon={false}
           checkedIcon={false}
           boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
           activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-          height={20}
-          width={48}
+          height={14}
+          width={34}
           className="react-switch"
           id="material-switch"
         />
-        <Text>상담 중인 요청만 보기</Text>
+        <SwitchText>상담 중인 요청만 보기</SwitchText>
       </SwitchWrapper>
     </Wrapper>
   );
@@ -107,7 +107,7 @@ const SwitchWrapper = styled.div`
   align-items: center;
 `;
 
-const Text = styled.text`
+const SwitchText = styled.text`
   font-size: 14px;
   line-height: 20px;
   color: ${(props) => props.theme.colors.textColor};
