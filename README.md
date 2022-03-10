@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Ateamventures Front End Coding Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created to test coding skills
 
 ## Available Scripts
 
