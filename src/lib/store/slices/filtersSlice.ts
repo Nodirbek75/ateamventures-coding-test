@@ -42,8 +42,8 @@ export const filtersSlice = createSlice({
         state.materials = updatedMaterials;
       }
     },
-    toggle: (state, action: PayloadAction<boolean>) => {
-      state.toggleOn = action.payload;
+    toggle: (state, action: PayloadAction) => {
+      state.toggleOn = !state.toggleOn;
     },
     resetFilters: (state, action: PayloadAction) => ({
       ...initialState,
